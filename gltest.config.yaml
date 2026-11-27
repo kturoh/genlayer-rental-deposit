@@ -1,0 +1,6 @@
+# gltest configuration for local (direct-mode) testing.
+# No live network is used: tests run against the in-memory VM only.
+# Network settings are left at the gltest defaults (localnet).
+paths:
+  contracts: contracts
+  artifacts: artifacts

@@ -1,0 +1,61 @@
+INFO: File `gltest.config.yaml` found in the current directory, using it
+INFO: Using the following configuration:
+INFO:   RPC URL: http://127.0.0.1:4000/api
+INFO:   Selected Network: localnet
+INFO:   Available networks: ['localnet', 'studio_devnet', 'studionet', 'testnet_bradbury', 'testnet_clarke']
+INFO:   Selected chain type: localnet
+INFO:   Available chains: localnet, studio_devnet, studionet, testnet_bradbury, testnet_clarke
+INFO:   Contracts directory: contracts
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0 -- /home/hatch/workspace/genlayer/rental-deposit/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/hatch/workspace/genlayer/rental-deposit
+configfile: pyproject.toml
+plugins: genlayer-test-0.30.2
+collecting ... collected 38 items
+
+tests/direct/test_rental_deposit.py::test_create_and_read_fields PASSED  [  2%]
+tests/direct/test_rental_deposit.py::test_total_leases_counts PASSED     [  5%]
+tests/direct/test_rental_deposit.py::test_create_rejects_zero_value PASSED [  7%]
+tests/direct/test_rental_deposit.py::test_create_rejects_same_tenant_and_landlord PASSED [ 10%]
+tests/direct/test_rental_deposit.py::test_create_rejects_zero_address_landlord PASSED [ 13%]
+tests/direct/test_rental_deposit.py::test_create_rejects_bad_title[] PASSED [ 15%]
+tests/direct/test_rental_deposit.py::test_create_rejects_bad_title[title1] PASSED [ 18%]
+tests/direct/test_rental_deposit.py::test_create_rejects_empty_description PASSED [ 21%]
+tests/direct/test_rental_deposit.py::test_create_rejects_bad_windows[0-7] PASSED [ 23%]
+tests/direct/test_rental_deposit.py::test_create_rejects_bad_windows[181-7] PASSED [ 26%]
+tests/direct/test_rental_deposit.py::test_create_rejects_bad_windows[30-0] PASSED [ 28%]
+tests/direct/test_rental_deposit.py::test_create_rejects_bad_windows[30-31] PASSED [ 31%]
+tests/direct/test_rental_deposit.py::test_unknown_lease_id_rejected PASSED [ 34%]
+tests/direct/test_rental_deposit.py::test_happy_path_confirm_splits_deposit_by_claim PASSED [ 36%]
+tests/direct/test_rental_deposit.py::test_only_landlord_can_claim_checkout PASSED [ 39%]
+tests/direct/test_rental_deposit.py::test_only_tenant_can_confirm PASSED [ 42%]
+tests/direct/test_rental_deposit.py::test_confirm_requires_claimed_state PASSED [ 44%]
+tests/direct/test_rental_deposit.py::test_claim_checkout_twice_rejected PASSED [ 47%]
+tests/direct/test_rental_deposit.py::test_claim_rejects_bad_amount PASSED [ 50%]
+tests/direct/test_rental_deposit.py::test_claim_rejects_empty_evidence_and_bad_url PASSED [ 52%]
+tests/direct/test_rental_deposit.py::test_dispute_requires_claimed_state PASSED [ 55%]
+tests/direct/test_rental_deposit.py::test_timeout_refund_after_checkout_deadline PASSED [ 57%]
+tests/direct/test_rental_deposit.py::test_timeout_refund_before_deadline_rejected PASSED [ 60%]
+tests/direct/test_rental_deposit.py::test_refunded_lease_is_final PASSED [ 63%]
+tests/direct/test_rental_deposit.py::test_silent_tenant_checkout_after_dispute_window PASSED [ 65%]
+tests/direct/test_rental_deposit.py::test_collect_before_window_and_confirm_after_window_rejected PASSED [ 68%]
+tests/direct/test_rental_deposit.py::test_dispute_flow_and_second_dispute_rejected PASSED [ 71%]
+tests/direct/test_rental_deposit.py::test_only_tenant_can_dispute PASSED [ 73%]
+tests/direct/test_rental_deposit.py::test_dispute_rejects_empty_claim_or_evidence PASSED [ 76%]
+tests/direct/test_rental_deposit.py::test_adjudicate_release_keeps_full_claim PASSED [ 78%]
+tests/direct/test_rental_deposit.py::test_adjudicate_refund PASSED       [ 81%]
+tests/direct/test_rental_deposit.py::test_adjudicate_split PASSED        [ 84%]
+tests/direct/test_rental_deposit.py::test_adjudicate_with_evidence_url_uses_fetched_page PASSED [ 86%]
+tests/direct/test_rental_deposit.py::test_adjudicate_tolerates_dead_evidence_url PASSED [ 89%]
+tests/direct/test_rental_deposit.py::test_adjudicate_rejects_unparsable_llm PASSED [ 92%]
+tests/direct/test_rental_deposit.py::test_adjudicate_requires_disputed_state PASSED [ 94%]
+tests/direct/test_rental_deposit.py::test_validator_disagrees_when_llm_changes PASSED [ 97%]
+tests/direct/test_rental_deposit.py::test_validator_rejects_leader_error PASSED [100%]
+
+============================= 38 passed in 33.79s ==============================
